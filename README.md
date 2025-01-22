@@ -3,7 +3,17 @@
 ## Descripción
 Se trata de una aplicación orientada a actuar como asistente de ciberseguridad y sostenibilidad especialmente respecto a dispositivos que el usuario tenga en su casa. Sin embargo, también se le pueden realizar preguntas genéricas sobre ciberseguridad.
 
-## Uso
+## Uso con DOCKER
+Descargamos imagen:
+- docker pull albertom02/cibeladvisor-gemini
+
+La ejecutamos:
+- docker run -p 8501:8501 -e USER_SECRET_KEY=“MI-KEY” albertom02/cibeladvisor-gemini:latest
+
+Accedemos a la página web donde estará disponible la aplicación:
+- http://localhost:8501
+
+## Uso descargando el código 
 Para utilizar la aplicación, se invoca con el comando:
 
 - Versión Llama:
