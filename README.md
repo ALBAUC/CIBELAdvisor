@@ -32,7 +32,7 @@ Para utilizar la aplicación, se invoca con el comando:
  
 NOTA: Se debe declarar la API-Key de Gemini para que pueda ser usada en el código de la siguiente manera:
 
-export USER_SECRET_KEY="MI-KEY"
+- export USER_SECRET_KEY="MI-KEY"
 
 ## Datos Técnicos
 La aplicación está desarrollada con Streamlit, se apoya en un LLM y un RAG, una chain de Langchain que utiliza diversos documentos con información sobre vulnerabilidades y sostenibilidad, para poder proporcionar información más técnica y/o de actualidad al LLM en tiempo
