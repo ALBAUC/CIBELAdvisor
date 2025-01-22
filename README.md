@@ -3,9 +3,11 @@
 ## Descripción
 Se trata de una aplicación orientada a actuar como asistente de ciberseguridad y sostenibilidad especialmente respecto a dispositivos que el usuario tenga en su casa. Sin embargo, también se le pueden realizar preguntas genéricas sobre ciberseguridad.
 
-## Uso con DOCKER
+## Uso con DOCKER (Solo con Gemini)
 Descargamos imagen:
 - docker pull albertom02/cibeladvisor-gemini
+
+NOTA: Para conseguir acceso a una key (La cual deberás poner en lugar de "MI-KEY"), solicita una API Key de Gemini aquí: https://aistudio.google.com/app/apikey 
 
 La ejecutamos:
 - docker run -p 8501:8501 -e USER_SECRET_KEY=“MI-KEY” albertom02/cibeladvisor-gemini:latest
@@ -26,7 +28,11 @@ Para utilizar la aplicación, se invoca con el comando:
   - streamlit run fichero.py
 
   Por ejemplo:
-  - streamlit run streamlitappV4_Gemini.py 
+  - streamlit run streamlitappV4_Gemini.py
+ 
+NOTA: Se debe declarar la API-Key de Gemini para que pueda ser usada en el código de la siguiente manera:
+
+export USER_SECRET_KEY="MI-KEY"
 
 ## Datos Técnicos
 La aplicación está desarrollada con Streamlit, se apoya en un LLM y un RAG, una chain de Langchain que utiliza diversos documentos con información sobre vulnerabilidades y sostenibilidad, para poder proporcionar información más técnica y/o de actualidad al LLM en tiempo
