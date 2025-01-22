@@ -10,7 +10,7 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain.prompts import PromptTemplate
 from langchain.chains.retrieval_qa.base import RetrievalQA
 
- #Importar la librería de Gemini que nos habiolita usar su API, y la de langchain que nos habilita a usarlo con el framework
+#Importar la librería de Gemini que nos habiolita usar su API, y la de langchain que nos habilita a usarlo con el framework
 import google.generativeai as genai
 
 from langchain_google_genai.llms import GoogleGenerativeAI 
@@ -19,13 +19,14 @@ llm = GoogleGenerativeAI(model="gemini-2.0-flash-exp")
 
 
 #Configuración de la API de Gemini
-USER_SECRET_KEY=tu_secret_key
-genai.configure(api_key=os.environ[USER_SECRET_KEY])
 
-# Comprobar si MPS está disponible en nuestra CPU (DEBUG)
+# Obtener la clave desde las variables de entorno
+USER_SECRET_KEY = os.getenv("USER_SECRET_KEY")  # Carga la clave desde las variables de entorno
+if not USER_SECRET_KEY:
+    raise ValueError("The environment variable 'USER_SECRET_KEY' is not set!")
 
-print(torch.backends.mps.is_available())
-print(torch.backends.mps.is_built())
+# Configuración de la API de Gemini
+genai.configure(api_key=USER_SECRET_KEY)
 
 #Guardar el modelo de Gemini como el llm a usar en la sesión se Streamlit
 st.session_state.llmGPU = llm
