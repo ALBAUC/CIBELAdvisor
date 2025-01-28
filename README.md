@@ -3,7 +3,19 @@
 ## Descripción
 Se trata de una aplicación orientada a actuar como asistente de ciberseguridad y sostenibilidad especialmente respecto a dispositivos que el usuario tenga en su casa. Sin embargo, también se le pueden realizar preguntas genéricas sobre ciberseguridad.
 
-## Uso con DOCKER (Solo con Gemini)
+## Crear imagen de Docker y ejecutar
+Desde el nivel de jerarquía donde está el DockerFile:
+- docker build -t gemini-streamlit-app .
+- docker run -d -p 8501:8501 --name gemini-container -e USER_SECRET_KEY="MI-KEY" gemini-streamlit-app
+
+## Si se quiere hacer creación y push a una cuenta de Docker Hub 
+Desde el nivel de jerarquía donde está el DockerFile:
+- docker build -t gemini-streamlit-app .
+- docker login
+- docker tag gemini-streamlit-app miusuario/gemini-streamlit-app:latest
+- docker push miusuario/gemini-streamlit-app:latest
+
+## Descargar y ejecutar imagen de DOCKER Hub (Solo con Gemini)
 Descargamos imagen:
 - docker pull albertom02/cibeladvisor-gemini
 
